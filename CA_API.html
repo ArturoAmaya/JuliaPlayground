@@ -1,0 +1,76 @@
+<!doctype html>
+
+<head>
+  <style>
+    #curriculum {
+      border: none;
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <iframe id="curriculum" src="//curricula-api-embed.damoursystems.com/"></iframe>
+
+  <script>
+    var data = {
+      // Curriculum data
+      curriculum: {
+        terms: [
+          // Term 1
+          {
+            // Each term has an id, name, and array of items
+            id: 1,
+            name: 'Term 1',
+            items: [
+              // Each term has an id, name, credits, and array of requisites
+              {
+                id: 1,
+                name: 'ECE 101',
+                credits: 3,
+                requisites: []
+              }
+            ]
+          },
+
+          // Term 2
+          {
+            id: 2,
+            name: 'Term 2',
+            items: [
+              {
+                id: 4,
+                name: 'ECE 201',
+                credits: 3,
+                requisites: [
+                  // Each requisite has a source / target id and a type ('prereq', 'coreq', or 'strict-coreq')
+                  {
+                    source_id: 1,
+                    target_id: 4,
+                    type: 'prereq'
+                  }
+                ]
+              },
+              {
+                id: 5,
+                name: 'ECE 202',
+                credits: 6,
+                requisites: []
+              }
+            ]
+          }
+        ]
+      }
+    }
+
+    // Get curriculum frame by id
+    curriculumFrame = document.getElementById('curriculum')
+
+    // Wait for frame to load, then post curriculum data to it
+    curriculumFrame.addEventListener('load', function () {
+      curriculumFrame.contentWindow.postMessage(data, '*')
+    })
+  </script>
+</body>
+</html>
