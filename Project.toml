@@ -1,4 +1,2 @@
 [deps]
-CurricularAnalytics = "593ffa3d-269e-5d81-88bc-c3b6809c35a6"
-CurricularVisualization = "fbaee398-1ac9-4ee2-a69c-ef17203eefbf"
 PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
